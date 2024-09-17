@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: black; /* Título em preto */
+  font-weight: bold;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+thead tr {
+  background-color: #909090; /* Cabeçalho das colunas em cinza */
+  color: white; /* Texto do cabeçalho em branco */
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+tbody tr {
+  background-color: white; /* Cor de fundo padrão para as linhas */
+  color: black; /* Texto das linhas em preto */
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+tr td {
+  padding: 15px;
+}
+
+/* Ajustes gerais para os botões */
+button {
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreamento para todos os botões */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilo do botão da lixeira */
+#lixeira {
+  width: 17px; /* Ajuste do tamanho do ícone da lixeira */
+  height: 17px;
+  transition: transform 0.3s ease;
+}
+
+#lixeira:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo do botão do editar */
+#editar {
+  width: 17px; /* Ajuste do tamanho do ícone da lixeira */
+  height: 17px;
+  transition: transform 0.3s ease;
+}
+
+#editar:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo do botão de concluir */
+#concluir {
+  width: 17x; /* Ajuste do tamanho do ícone da lixeira */
+  height: 17px;
+  transition: transform 0.3s ease;
+}
+
+#concluir:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo específico para os botões das ações */
+form {
+  display: inline; /* Alinha os formulários na mesma linha */
+}
+
+form[action*="delete"] button {
+  background-color: #dc3545; /* Vermelho */
+}
+
+form[action*="delete"] button:hover {
+  background-color: #c82333;
+}
+
+form[action*="editar"] button {
+  background-color: #ffc107; /* Amarelo */
+  color: black; /* Texto em preto para o botão de editar */
+}
+
+form[action*="editar"] button:hover {
+  background-color: #e0a800;
+}
+
+form[action*="concluir"] button {
+  background-color: #47a138; /* Verde */
+}
+
+form[action*="concluir"] button:hover {
+  background-color: #3c8d2f;
+}
+
+/* Estilo do botão Cadastrar */
+a {
+  display: block;
+  width: 200px;
+  margin: 30px auto;
+  text-align: center;
+  background-color: #47a138; /* Fundo verde */
+  color: white;
+  padding: 10px 0;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreamento */
+  transition: box-shadow 0.3s ease;
+}
+
+a:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}

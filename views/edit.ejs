@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar a tarefa</title>
+  <link rel="stylesheet" href="/stylesheets/edit.css">
+</head>
+
+<body>
+  <h1>Editar tarefa</h1>
+  <form method="POST" action="/home/atualizar/<%= todos._id %>">
+    <label for="tarefa">Tarefa:</label>
+    <input type="text" name="tarefa" id="tarefa" required value="<%= todos.tarefa %>"> <br />
+
+    <label for="Data">Data de Conclusão:</label>
+    <input type="date" name="data_conclusao" id="data_conclusao" required> <br />
+    
+    <a href="/home">Cancelar</a>
+    <button type="submit"
+      onclick="if(document.getElementById('tarefa').value && document.getElementById('data').value){alert('Tarefa editada com Sucesso!')} else {alert('Não foi possível editar pois há campos em branco!')}">
+      Editar
+    </button>
+  </form>
+
+  <script>
+    // Definir a data mínima para o dia de hoje
+    const hoje = new Date();
+    const dataMinima = hoje.toISOString().split("T")[0];
+    document.getElementById("data_conclusao").setAttribute("min", dataMinima);
+  </script>
+</body>
+
+</html>

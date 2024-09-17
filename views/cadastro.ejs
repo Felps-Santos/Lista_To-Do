@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Tarefas</title>
+  <link rel="stylesheet" href="/stylesheets/cadastro.css">
+</head>
+
+<body>
+  <h1>Cadastrar nova tarefa</h1>
+  <form action="/cadastro/cadastrar" method="POST">
+    <label for="tarefa">Tarefa:</label>
+    <input type="text" name="tarefa" id="tarefa" required> <br />
+
+    <label for="Data">Data de Conclusão:</label>
+    <input type="date" name="data" id="data" required> <br />
+    
+    <!-- Botão de Cancelar -->
+    <button type="button" onclick="window.location.href = '/home'">Cancelar</button>
+
+    <!-- Botão de Cadastrar -->
+    <button type="submit" onclick="alert('Tarefa Cadastrada com Sucesso!')">Cadastrar</button>
+  </form>
+
+  <script>
+    // Definir a data mínima para o dia de hoje
+    const hoje = new Date();
+    const dataMinima = hoje.toISOString().split("T")[0];
+    document.getElementById("data").setAttribute("min", dataMinima);
+  </script>
+
+</body>
+
+</html>

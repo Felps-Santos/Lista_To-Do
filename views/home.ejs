@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home To-Do</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body>
+    <h1>Lista To-Do</h1>
+
+    <table>
+        <thead>
+            <tr class="tr">
+                <td>Tarefa</td>
+                <td>Data de Criação</td>
+                <td>Data de Conclusão</td>
+                <td>Status</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% todos.forEach((todo) => { %>
+                <tr style="background-color: <%= todo.status === 'Concluída' ? 'rgba(71, 161, 56, 0.9)' : 'rgba(255, 255, 255, 1)' %>; color: <%= todo.status === 'Concluída' ? 'white' : 'black' %>">
+
+                    <td style="text-decoration: <%= todo.status === 'Concluída' ? 'line-through' : 'none'%>">
+                        <%= todo.tarefa %>
+                    </td>
+                    <td style="text-decoration: <%= todo.status === 'Concluída' ? 'line-through' : 'none'%>">
+                        <%= format(todo.data_criacao, 'dd/MM/yyyy') %>
+                    </td>
+                    <td style="text-decoration: <%= todo.status === 'Concluída' ? 'line-through' : 'none'%>">
+                        <%= 
+                            (() => {
+                                const date = new Date(todo.data_conclusao);
+                                date.setHours(date.getHours() + date.getTimezoneOffset() / 60);
+                                return date.toLocaleDateString('pt-BR');
+                            })()
+                        %>
+                    </td>
+                    <td style="text-decoration: <%= todo.status === 'Concluída' ? 'line-through' : 'none'%>">
+                        <%= todo.status %>
+                    </td>
+                    <td>
+                        <form action="/home/delete/<%= todo._id %>" method="POST" onsubmit="return confirm('Deseja excluir essa tarefa ?')">
+                            <button type="submit"><img src="/images/trash.png" id="lixeira" alt="Excluir"></button>
+                        </form>
+                        <form action="/home/editar/<%= todo._id %>" method="GET">
+                            <button type="submit"><img src="/images/editar.png" id="editar" alt="Editar"></button>
+                        </form>
+                        <form action="/home/concluir/<%= todo._id %>" method="POST" onsubmit="return confirm('Deseja concluir essa tarefa ?')">
+                            <button type="submit"><img src="/images/verificado.png" id="concluir" alt="Concluir"></button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+        
+    </table>
+
+    <a href="/cadastro">Cadastrar nova tarefa</a>
+</body>
+
+</html>
